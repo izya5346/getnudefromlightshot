@@ -1,10 +1,12 @@
 from nudenet import NudeClassifier
 import os
-files = os.listdir('Valid')
-files.remove('get_skin.py')
-files.remove('Valid')
-files.remove('main.py')
-files.remove('sort.py')
+files = os.listdir('Valid')    
+if not os.path.exists('Valid/Pron'):
+    os.makedirs('Valid/Pron')
+if not os.path.exists('Valid/Error'):
+    os.makedirs('Valid/Error')
+files.remove('Pron')
+files.remove('Error')
 classifier = NudeClassifier()
 for i in files:
     try:
