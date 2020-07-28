@@ -10,7 +10,7 @@ files.remove('Error')
 classifier = NudeClassifier()
 for i in files:
     try:
-        data = classifier.classify(i)[i]['unsafe']
+        data = classifier.classify('Valid/' + i)[i]['unsafe']
         if data > 0.7:
             print(i + ' is OK')
             os.rename('Valid/'+ i, 'Valid/Pron/' + i)
